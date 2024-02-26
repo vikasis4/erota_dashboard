@@ -1,18 +1,20 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
-import { colors, fontSizes, fonts, space } from '../theme'
+import * as style from '../ui/styles'
+import HomeBox from '../components/HomeBox'
 
 
-const Home = (props:any) => {
+const Home = (props: any) => {
+  var nav = props.navigation.navigate
+  
   return (
-    <View>
-        <TouchableOpacity onPress={() => props.navigation.navigate('Splash')}>
-        <Text style={{ color: 'black' }}>Home</Text>
-      </TouchableOpacity>
+    <View style={[style.flex(1, 1, 1, 1, 20, 2), style.box('', '', 1), style.padding(20, 0, 20, 0)]}>
+      <HomeBox name="Users" route="Users" show={false} nav={nav} />
+      <HomeBox name="Orders" route="Orders" show={true} nav={nav} />
+      <HomeBox name="Pay Slips" route="Pay" show={false} nav={nav} />
+      <HomeBox name="Query" route="Query" show={true} nav={nav}/>
     </View>
   )
 }
 
 export default Home
-
-const styles = StyleSheet.create({})

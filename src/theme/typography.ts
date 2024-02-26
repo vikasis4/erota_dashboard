@@ -1,7 +1,7 @@
 export const fonts = {
   xs: 'Ubuntu-Light',
-  sm: 'Ubuntu-Medium',
-  md: 'Ubuntu-Regular',
+  sm: 'Ubuntu-Regular',
+  md: 'Ubuntu-Medium',
   lg: 'Ubuntu-Bold',
 };
 

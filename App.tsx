@@ -1,9 +1,12 @@
 import React from 'react'
 import AppStackNavigation from './src/navigation/AppStackNavigator'
+import TanStackProvider from './src/tanStack/Provider'
 
 const App = () => {
   return (
-    <AppStackNavigation />
+    <TanStackProvider>
+      <AppStackNavigation />
+    </TanStackProvider>
   )
 }
 
