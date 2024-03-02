@@ -6,6 +6,6 @@ export const colors = {
     text: {
         light: '#EEF5FF',
         dark: 'rgba(0,0,0,0.8)',
-        danger: 'red'
+        danger: 'rgba(255,0,0,0.7)'
     }
 }
