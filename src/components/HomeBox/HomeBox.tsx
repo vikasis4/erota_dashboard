@@ -8,9 +8,6 @@ import { styles } from './Content'
 
 const HomeBox = (props: HomeBoxType) => {
 
-
-
-
   return (
     <Animation.Basic position={props.position} style={styles.main}>
       {

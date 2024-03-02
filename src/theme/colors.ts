@@ -3,5 +3,9 @@ export const colors = {
     secondary: '#ADBC9F',
     dark: '#12372A',
     accent: '#FAEF5D',
-    text:'#EEF5FF'
+    text: {
+        light: '#EEF5FF',
+        dark: 'rgba(0,0,0,0.8)',
+        danger: 'red'
+    }
 }

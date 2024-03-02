@@ -10,9 +10,9 @@ const Content = ({ props }: { props: HomeBoxType }) => {
         <>
             <Text style={styles.text}>{props.name}</Text>
             <View style={styles.primary}>
-                <View style={{ paddingLeft: 20, flex: 1 }}>
+                <View>
                     <Text style={styles.textInner}>Total :- {props.data.tl}</Text>
-                    {props.position && <Text style={[styles.textInner, { color: 'red' }]}>Pending :- {props.data.pl}</Text>}
+                    {props.position && <Text style={styles.textInner2}>Pending :- {props.data.pl}</Text>}
                 </View>
                 <Button txt="View" route={props.route} nav={props.nav} />
             </View>
@@ -24,20 +24,23 @@ export default Content
 
 export const styles = StyleSheet.create({
     primary: {
-        ...style.flex(1, 2, 1, 1, 0, 0)
+        ...style.flex(1, '100%', 'space-between', 'center', 0, 'row', 'secondary', 'noWrap'),
+        paddingLeft:20
     },
     main: {
-        ...style.flex(1, 1, 1, 1, 0, 2),
-        ...style.box('', '90%', 2),
+        ...style.flex(1, '94%', 'center', 'center', 0, 'column', 'secondary', 'noWrap'),
         elevation: 10,
         borderRadius: 6,
         padding: 10
     },
     textInner: {
-        ...style.text(2, 'left', 1, 3),
+        ...style.text('dark', 'left', 'xl', 'md'),
+    },
+    textInner2: {
+        ...style.text('danger', 'left', 'xl', 'md'),
     },
     text: {
-        ...style.text(2, 'left', 4, 3),
+        ...style.text('dark', 'left', '4xl', 'lg'),
         width: '100%',
         borderBottomColor: 'gray',
         borderBottomWidth: 2

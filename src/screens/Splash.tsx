@@ -13,8 +13,8 @@ const Splash = (props: any) => {
   }, [])
 
   return (
-    <View style={[style.flex(1, 1, 1, 1, 0, 2), style.box('1', '1', 3)]}>
-      <Text style={[style.text(1, 'center', 4, 4)]}>{MSG.SPLASH}</Text>
+    <View style={[style.flex(1, '100%', 'center', 'center', 0, 'column', 'dark', 'noWrap')]}>
+      <Text style={[style.text('dark', 'center', '6xl', 'lg')]}>{MSG.SPLASH}</Text>
     </View>
   )
 }

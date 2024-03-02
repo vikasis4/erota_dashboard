@@ -17,7 +17,7 @@ const Home = (props: any) => {
 
 
   return (
-    <View style={[style.flex(1, 1, 1, 1, 20, 2), style.box('', '', 1), style.padding(20, 0, 20, 0)]}>
+    <View style={[style.flex(1, '100%', 'center', 'center', 20, 'column', 'primary', 'noWrap'), { paddingVertical: 20 }]}>
       <HomeBox data={users} name="Users" route="Users" position={false} nav={nav} />
       <HomeBox data={orders} name="Orders" route="Orders" position={true} nav={nav} />
       <HomeBox data={slips} name="Pay Slips" route="Pay" position={false} nav={nav} />

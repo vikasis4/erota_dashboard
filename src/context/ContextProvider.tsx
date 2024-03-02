@@ -6,7 +6,7 @@ const ContextProvider = ({ children }: { children: JSX.Element }) => {
     var Providers = [StyleProvider]
 
     return (
-        Providers.reduce((Parent:any, Child) => {
+        Providers.reduce((Parent: any, Child) => {
             return (
                 <Parent>
                     <Child>

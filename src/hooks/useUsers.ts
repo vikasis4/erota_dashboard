@@ -9,10 +9,10 @@ const useUser = () => {
     })
 
     if (!isPending && data.status == 'true') {
-        return { isPending, isError, data, tl: data.data.length }
+        return { isPending, isError, data: data.data, tl: data.data.length }
     } else if (!isPending && data.status == 'false') {
         return { isPending: false, isError: true, data: [], tl: 0 }
-    }else {
+    } else {
         return { isPending: true, isError: false, data: [], tl: 0 }
     }
 

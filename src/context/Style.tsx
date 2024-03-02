@@ -1,6 +1,6 @@
 import React from "react";
 
-interface StyleType {
+export interface StyleType {
     style: any;
     setStyle: React.Dispatch<React.SetStateAction<{}>>;
 }
