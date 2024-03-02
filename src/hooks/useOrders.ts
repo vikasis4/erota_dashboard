@@ -9,12 +9,12 @@ const useOrders = () => {
         queryFn: () => fetch(FETCH_ORDERS_API).then((res) => res.json())
     })
 
-    if (!isPending) {
-
+    if (!isPending && data.status == 'true') {
         return { isPending, isError, data, tl: data.data.length, pl: UTILS.calcPendList(data.data) }
+    } else if (!isPending && data.status == 'false') {
+        return { isPending: false, isError: true, data: [], tl: 0, pl: 0 }
     } else {
-
-        return { isPending: true, isError: false, data: [], tl: 0 }
+        return { isPending: true, isError: false, data: [], tl: 0, pl: 0 }
     }
 }
 

@@ -7,12 +7,13 @@ const useQueries = () => {
         queryKey: ['queriesFetch'],
         queryFn: () => fetch(FETCH_QUERIES_API).then((res) => res.json())
     })
-    
-    if (!isPending) {
-        return { isPending, isError, data, tl: data.data.length, pl: data.data.length }
-    } else {
 
-        return { isPending: true, isError: false, data: [], tl: 0 }
+    if (!isPending && data.status == 'true') {
+        return { isPending, isError, data, tl: data.data.length, pl: data.data.length }
+    } else if (!isPending && data.status == 'false') {
+        return { isPending: false, isError: true, data: [], tl: 0, pl:0 }
+    } else {
+        return { isPending: true, isError: false, data: [], tl: 0, pl:0 }
     }
 }
 
