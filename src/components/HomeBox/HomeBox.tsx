@@ -4,16 +4,15 @@ import * as Animation from '../../animations'
 import Error from '../../ui/components/Error'
 import Content from './Content'
 import HomeBoxType from './type'
-import useStore from '../../hooks/useStore'
+import { styles } from './Content'
 
 const HomeBox = (props: HomeBoxType) => {
 
-  const style = useStore('style');
-  console.log(style?.style);
-  
+
+
 
   return (
-    <Animation.HomeCard position={props.position}>
+    <Animation.Basic position={props.position} style={styles.main}>
       {
         props.data.isPending ?
           <SHIMMER.Basic />
@@ -23,7 +22,7 @@ const HomeBox = (props: HomeBoxType) => {
             :
             <Content props={props} />
       }
-    </Animation.HomeCard>
+    </Animation.Basic>
   )
 }
 

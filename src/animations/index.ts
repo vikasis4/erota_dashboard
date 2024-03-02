@@ -1,3 +1,3 @@
-import HomeCard from "./HomeCard";
+import Basic from "./Basic";
 
-export {HomeCard}
+export {Basic}

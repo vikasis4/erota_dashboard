@@ -1,7 +1,7 @@
 import React from "react";
 
 interface StyleType {
-    style: {};
+    style: any;
     setStyle: React.Dispatch<React.SetStateAction<{}>>;
 }
 export const StyleContext = React.createContext<StyleType | null>(null)

@@ -7,23 +7,14 @@ import Animated,
     withDelay,
 } from 'react-native-reanimated';
 import * as FACTORS from '../config/factors'
-import * as style from '../ui/styles'
-
 
 interface HomeType {
     children: React.JSX.Element | React.JSX.Element[],
     position: boolean,
+    style:{}
 }
 
-const STYLE = {
-    ...style.flex(1, 1, 1, 1, 0, 2),
-    ...style.box('', '90%', 2),
-    elevation: 10,
-    borderRadius: 6,
-    padding: 10
-}
-
-const HomeCard = ({ children, position }: HomeType) => {
+const Basic = ({ children, position, style }: HomeType) => {
 
     const translateX = useSharedValue(position ? FACTORS.ANIMATION.START_POS_A : -FACTORS.ANIMATION.START_POS_A);
     const animatedStyles = useAnimatedStyle(() => ({
@@ -37,10 +28,10 @@ const HomeCard = ({ children, position }: HomeType) => {
 
 
     return (
-        <Animated.View style={[STYLE, animatedStyles]}>
+        <Animated.View style={[style, animatedStyles]}>
             {children}
         </Animated.View>
     )
 }
 
-export default HomeCard
+export default Basic

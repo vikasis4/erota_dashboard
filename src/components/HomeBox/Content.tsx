@@ -5,6 +5,7 @@ import * as style from '../../ui/styles'
 import HomeBoxType from './type'
 
 const Content = ({ props }: { props: HomeBoxType }) => {
+
     return (
         <>
             <Text style={styles.text}>{props.name}</Text>
@@ -21,7 +22,7 @@ const Content = ({ props }: { props: HomeBoxType }) => {
 
 export default Content
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     primary: {
         ...style.flex(1, 2, 1, 1, 0, 0)
     },
