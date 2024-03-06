@@ -1,27 +1,22 @@
-import { View } from 'react-native'
+import { Image, View } from 'react-native'
 import React from 'react'
 import * as style from '../ui/styles'
 import HomeBox from '../components/HomeBox/HomeBox'
-import * as HOOKS from '../hooks'
-
+import UpImage from '../animations/UpImage'
+import useStore from '../hooks/useStore'
 
 const Home = (props: any) => {
 
   var nav = props.navigation.navigate
-
-  var users = HOOKS.useUser()
-  var orders = HOOKS.useOrders()
-  var queries = HOOKS.useQueries()
-  var slips = HOOKS.useSlips()
-
+  const { API } = useStore()
 
 
   return (
-    <View style={[style.flex(1, '100%', 'center', 'center', 20, 'column', 'primary', 'noWrap'), { paddingVertical: 20 }]}>
-      <HomeBox data={users} name="Users" route="Users" position={false} nav={nav} />
-      <HomeBox data={orders} name="Orders" route="Orders" position={true} nav={nav} />
-      <HomeBox data={slips} name="Pay Slips" route="Pay" position={false} nav={nav} />
-      <HomeBox data={queries} name="Query" route="Query" position={true} nav={nav} />
+    <View style={[style.flex(1, '100%', 'center', 'center', 20, 'column', 'primary', 'noWrap'), { paddingVertical: 120 }]}>
+      <HomeBox data={API.Order} name="Orders" route="OrdersList" position={true} nav={nav} />
+      <HomeBox data={API.User} name="Users" route="UsersList" position={false} nav={nav} />
+      <HomeBox data={API.Query} name="Query" route="QueryList" position={true} nav={nav} />
+      <UpImage />
     </View>
   )
 }

@@ -1,20 +1,26 @@
-import TanStackProvider from "../tanStack/Provider"
-import StyleProvider from "./Style"
+import TanStackProvider from "../tanStack/Provider";
+import ApiDataProvider from "./ApiData";
+import InitializeProvider from "../config/InitializeProvider";
+import GeneralProvider from "./General";
 
 const ContextProvider = ({ children }: { children: JSX.Element }) => {
 
-    var Providers = [StyleProvider]
+    var Providers = [
+        TanStackProvider,
+        ApiDataProvider,
+        GeneralProvider
+    ];
+
+    var Element = <InitializeProvider>{children}</InitializeProvider>
 
     return (
-        Providers.reduce((Parent: any, Child) => {
+        Providers.reduceRight((Child: any, Parent: any) => {
             return (
                 <Parent>
-                    <Child>
-                        {children}
-                    </Child>
+                    {Child}
                 </Parent>
             )
-        }, TanStackProvider)
+        }, Element)
     )
 }
 

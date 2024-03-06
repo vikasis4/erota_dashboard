@@ -7,10 +7,11 @@ export const flex = (
     align: string,
     gap: number,
     direction: string,
-    background: string,
+    background: string | null,
     wrap: string
 ): {} => {
     var newBg = background as keyof typeof colors;
+    var addStyle = background ? { backgroundColor: colors[newBg] } : {}
     return {
         flex,
         justifyContent: justify,
@@ -19,8 +20,8 @@ export const flex = (
         height: reduce,
         gap,
         flexDirection: direction,
-        backgroundColor: colors[newBg],
         flexWrap: wrap,
+        ...addStyle,
         boxSizing: 'borderBox',
     }
 }

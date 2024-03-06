@@ -1,8 +1,7 @@
 import Home from "./Home";
 import Splash from "./Splash";
-import Orders from "./Orders";
-import Users from "./Users";
-import Pay from "./Pay";
-import Query from "./Query";
+import OrdersList from "./OrdersList";
+import UsersList from "./UsersList";
+import QueryList from "./QueryList";
 
-export { Home, Splash, Orders, Users, Pay, Query} 
+export { Home, Splash, OrdersList, UsersList, QueryList} 

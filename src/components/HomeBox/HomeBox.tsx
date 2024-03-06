@@ -21,6 +21,6 @@ const HomeBox = (props: HomeBoxType) => {
       }
     </Animation.Basic>
   )
-}
+} 
 
 export default HomeBox

@@ -14,10 +14,9 @@ const AppStackNavigation = () => {
             }} >
                 <Stack.Screen name="Splash" component={Screen.Splash} />
                 <Stack.Screen name="Home" component={Screen.Home} />
-                <Stack.Screen name="Users" component={Screen.Users} />
-                <Stack.Screen name="Orders" component={Screen.Orders} />
-                <Stack.Screen name="Pay" component={Screen.Pay} />
-                <Stack.Screen name="Query" component={Screen.Query} />
+                <Stack.Screen name="UsersList" component={Screen.UsersList} />
+                <Stack.Screen name="OrdersList" component={Screen.OrdersList} />
+                <Stack.Screen name="QueryList" component={Screen.QueryList} />
             </Stack.Navigator>
         </NavigationContainer>
     )

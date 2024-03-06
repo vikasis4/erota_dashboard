@@ -1,16 +1,13 @@
 import { useContext } from "react";
-import { StyleContext } from "../context/Style";
+import { ApiDataContext } from "../context/ApiData";
+import { GeneralContext } from "../context/General";
 
-const useStore = (dataSet: string) => {
+const useStore = () => {
 
-    const STYLE = useContext(StyleContext);
+    const API = useContext(ApiDataContext);
+    const GEN = useContext(GeneralContext);
 
-    const contexts = {
-        'style': STYLE
-    }
-
-    const keyTyped = dataSet as keyof typeof contexts
-    return contexts[keyTyped]
+    return {API, GEN}
 
 }
 

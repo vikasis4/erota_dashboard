@@ -1,11 +1,10 @@
 export const colors = {
-    primary: '#436850',
-    secondary: '#ADBC9F',
-    dark: '#12372A',
+    primary: '#F4538A',
+    secondary: '#FFCAD4',
     accent: '#FAEF5D',
     text: {
         light: '#EEF5FF',
-        dark: 'rgba(0,0,0,0.8)',
-        danger: 'rgba(255,0,0,0.7)'
+        dark: '#313866',
+        danger: '#D80032'
     }
 }
