@@ -4,7 +4,6 @@ import Animated,
     useSharedValue,
     useAnimatedStyle,
     withTiming,
-    runOnJS
 } from 'react-native-reanimated';
 
 interface StreamProp {
@@ -21,7 +20,10 @@ const DownPage = ({ children, style }: StreamProp) => {
         }],
     }));
     React.useEffect(() => {
-        translateY.value = withTiming(0, { duration: 700 })
+        translateY.value = withTiming(0, { duration: 700 });
+        return () => {
+            translateY.value = 0;
+        }
     }, [])
 
 

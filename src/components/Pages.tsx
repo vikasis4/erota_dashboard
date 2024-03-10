@@ -1,27 +1,38 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { ScrollView, StyleSheet, Text, View, InteractionManager } from 'react-native'
+import React, { memo } from 'react'
 import * as Styles from '../ui/styles'
 import DownPage from '../animations/DownPage'
 import { colors } from '../theme'
 import useStore from '../hooks/useStore'
 
-const Pages = ({ length, action,  }: { length: number, action: string,}) => {
+const Pages = ({ length, action, }: { length: number, action: string, }) => {
 
     var array = [];
     for (let index = 0; index < Math.ceil(length / 20); index++) {
         array.push('');
     };
 
+    const [state, setState] = React.useState(false);
+
+    React.useEffect(() => {
+        InteractionManager.runAfterInteractions(() => {
+            setState(true);
+        })
+    }, [])
+
     return (
-        <DownPage style={styles.main}>
-            <ScrollView style={{ flex: 1, marginHorizontal: 20 }} horizontal={true} >
-                <View style={styles.seal}>
-                    {
-                        array.map((item, index) => { return <Number key={index} num={index} action={action} /> })
-                    }
-                </View>
-            </ScrollView>
-        </DownPage>
+        state ?
+            <DownPage style={styles.main}>
+                <ScrollView style={{ flex: 1, marginHorizontal: 20 }} horizontal={true} >
+                    <View style={styles.seal}>
+                        {
+                            array.map((item, index) => { return <Number key={index} num={index} action={action} /> })
+                        }
+                    </View>
+                </ScrollView>
+            </DownPage>
+            :
+            null
     )
 }
 
@@ -40,7 +51,7 @@ const Number = ({ num, action }: { num: number, action: string }) => {
     )
 }
 
-export default Pages
+export default memo(Pages)
 
 const styles = StyleSheet.create({
     seal: {

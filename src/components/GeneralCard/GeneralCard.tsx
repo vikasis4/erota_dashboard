@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import * as Styles from '../../ui/styles'
 import * as Animation from '../../animations'
 import Content from './Content';
@@ -14,7 +14,7 @@ const GeneralCard = ({ data, num, TopComp, LeftComp, RightComp }: CardType) => {
     )
 }
 
-export default GeneralCard
+export default memo(GeneralCard)
 
 const styles = StyleSheet.create({
     main: {

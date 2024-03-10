@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import * as SHIMMER from '../../ui/package/shimmer'
 import * as Animation from '../../animations'
 import Error from '../../ui/components/Error'
@@ -23,4 +23,4 @@ const HomeBox = (props: HomeBoxType) => {
   )
 } 
 
-export default HomeBox
+export default memo(HomeBox)

@@ -1,7 +1,7 @@
 import React from "react";
 
 type API_TYPE = {
-    isLoading: boolean,
+    isPending: boolean,
     isError: boolean,
     tl: number,
     pl: number,
@@ -17,7 +17,7 @@ export interface API_DATA_TYPE {
 }
 
 var newData: {}[] = []
-const initialValue = { isLoading: true, isError: false, tl: 0, pl: 0, data: newData };
+const initialValue = { isPending: true, isError: false, tl: 0, pl: 0, data: newData };
 var stateFxn: React.Dispatch<React.SetStateAction<API_TYPE>> = (API_TYPE): void => { };
 const API_DATA_VALUE = {
     User: initialValue,

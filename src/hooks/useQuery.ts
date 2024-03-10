@@ -11,6 +11,7 @@ const useQueries = () => {
 
     var result = useApiResult('HomeTP', isPending, isError, data);    
     return result;
+
 }
 
 export default useQueries

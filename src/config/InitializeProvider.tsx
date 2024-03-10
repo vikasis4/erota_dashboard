@@ -10,7 +10,7 @@ const InitializeProvider = ({ children }: { children: any }) => {
 
     var users = HOOKS.useUser()
     var orders = HOOKS.useOrders()
-    var queries = HOOKS.useQueries()
+    var queries = HOOKS.useQueries() 
 
     React.useEffect(() => {
         API.setUser({ ...users, data: cutList(users.data, GEN.pageNumber.user) });

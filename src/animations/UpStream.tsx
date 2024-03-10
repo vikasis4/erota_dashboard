@@ -35,6 +35,11 @@ const UpStream = ({ children, style, num }: StreamProp) => {
             reduceMotion: ReduceMotion.System,
         })
         )
+
+        return () => {
+            translate.value = 0;
+            scale.value = 1;
+        }
     }, [])
 
     return (

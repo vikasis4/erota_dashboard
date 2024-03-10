@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { View, InteractionManager } from 'react-native'
 import React from 'react'
 import GeneralCard from '../components/GeneralCard/GeneralCard'
 import { DataType, NavProp } from '../components/GeneralCard/type'
@@ -7,7 +7,6 @@ import { colors } from '../theme'
 import useDelay from '../hooks/useDelay'
 import useStore from '../hooks/useStore'
 
-
 import Blank from '../components/elements/Blank'
 import Left from '../components/elements/user/Left'
 import Right from '../components/elements/user/Right'
@@ -15,7 +14,7 @@ import Pages from '../components/Pages';
 
 const UsersList = (props: NavProp) => {
 
-  const { API } = useStore()
+  const { API } = useStore();
   const isReady = useDelay();
 
   return (
@@ -25,9 +24,10 @@ const UsersList = (props: NavProp) => {
           null
           :
           <>
-            <View style={{ height:80, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ height: 80, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
               <Pages length={API.User.tl} action="user" />
             </View>
+
 
             <FlashList
               renderItem={({ item, index }: { item: DataType, index: number }) => {
