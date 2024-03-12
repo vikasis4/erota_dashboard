@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import React, { memo } from 'react'
 import * as Styles from '../../ui/styles'
 import * as Animation from '../../animations'

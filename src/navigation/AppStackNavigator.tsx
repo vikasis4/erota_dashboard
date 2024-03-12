@@ -13,6 +13,7 @@ const AppStackNavigation = () => {
                 animation: 'slide_from_right'
             }} >
                 <Stack.Screen name="Splash" component={Screen.Splash} />
+                <Stack.Screen name="Order" component={Screen.Order} />
                 <Stack.Screen name="Home" component={Screen.Home} />
                 <Stack.Screen name="UsersList" component={Screen.UsersList} />
                 <Stack.Screen name="OrdersList" component={Screen.OrdersList} />

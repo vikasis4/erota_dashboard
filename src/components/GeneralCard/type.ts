@@ -8,6 +8,9 @@ export interface DataType {
     name: string;
     email: string;
     _id: string;
+    orderId: string;
+    created_at: Date;
+    products?:any
 }
 export interface CardType {
     data: DataType;

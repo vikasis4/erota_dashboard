@@ -1,8 +1,8 @@
 import React from 'react'
 import Button from '../../../ui/components/Button'
-import { NavProp } from '../../GeneralCard/type'
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-const Right = ({ navTool }: { navTool: NavProp }) => {
+const Right = ({ navTool }: { navTool: NativeStackScreenProps<any,any> }) => {
 
   const handleClick = ()=>{
 

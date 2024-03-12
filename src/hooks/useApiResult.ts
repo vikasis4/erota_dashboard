@@ -11,6 +11,12 @@ interface ResultType {
 const useApiResult = (type: string, isPending: boolean, isError: boolean, data: any) => {
 
     var result: ResultType | any;
+    
+
+    if (isError) {
+        result = { isPending, isError };
+        return result;
+    }
 
     if (!isPending && data.status == 'true') {
         result = { isPending, isError, data: data.data }

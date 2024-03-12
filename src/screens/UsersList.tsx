@@ -1,7 +1,7 @@
-import { View, InteractionManager } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 import GeneralCard from '../components/GeneralCard/GeneralCard'
-import { DataType, NavProp } from '../components/GeneralCard/type'
+import { DataType } from '../components/GeneralCard/type'
 import { FlashList } from "@shopify/flash-list";
 import { colors } from '../theme'
 import useDelay from '../hooks/useDelay'
@@ -11,11 +11,13 @@ import Blank from '../components/elements/Blank'
 import Left from '../components/elements/user/Left'
 import Right from '../components/elements/user/Right'
 import Pages from '../components/Pages';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const UsersList = (props: NavProp) => {
+const UsersList = (props: NativeStackScreenProps<any, any>) => {
 
   const { API } = useStore();
   const isReady = useDelay();
+  
 
   return (
     <View style={{ backgroundColor: colors['primary'], height: '100%', width: '100%' }}>
@@ -31,7 +33,13 @@ const UsersList = (props: NavProp) => {
 
             <FlashList
               renderItem={({ item, index }: { item: DataType, index: number }) => {
-                return <GeneralCard data={item} num={index} TopComp={<Blank />} LeftComp={<Left navTool={props} />} RightComp={<Right navTool={props} />} />;
+                return <GeneralCard
+                  data={item}
+                  num={index}
+                  TopComp={<Blank />}
+                  LeftComp={<Left navTool={props} />}
+                  RightComp={<Right navTool={props} />}
+                />;
               }}
               estimatedItemSize={API.User.data.length}
               contentContainerStyle={{ padding: 20, backgroundColor: colors['primary'] }}

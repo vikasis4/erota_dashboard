@@ -2,7 +2,7 @@ import { colors, fontSizes, fonts } from '../../theme'
 
 export const flex = (
     flex: number | string,
-    reduce: string,
+    width: string,
     justify: string,
     align: string,
     gap: number,
@@ -14,10 +14,9 @@ export const flex = (
     var addStyle = background ? { backgroundColor: colors[newBg] } : {}
     return {
         flex,
+        width,
         justifyContent: justify,
         alignItems: align,
-        width: reduce,
-        height: reduce,
         gap,
         flexDirection: direction,
         flexWrap: wrap,

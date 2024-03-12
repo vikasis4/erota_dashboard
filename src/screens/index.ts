@@ -3,5 +3,6 @@ import Splash from "./Splash";
 import OrdersList from "./OrdersList";
 import UsersList from "./UsersList";
 import QueryList from "./QueryList";
+import Order from "./Order";
 
-export { Home, Splash, OrdersList, UsersList, QueryList} 
+export { Home, Order, Splash, OrdersList, UsersList, QueryList } 
