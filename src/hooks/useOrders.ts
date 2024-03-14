@@ -1,6 +1,7 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FETCH_ORDERS_API, MUT_SINGLE_ORDER, FETCH_SINGLE_ORDERS_API } from '../config/apis'
 import useApiResult from "./useApiResult";
+
 
 const useOrders = () => {
 
@@ -25,23 +26,31 @@ export const useGetOrder = (orderId: string) => {
     return result;
 }
 
-export const useUpdateOrder = (orderId: string, url: string) => {
+export const useUpdateOrder = () => {
 
-    var { isPending, isError, data } = useMutation({
-        mutationFn: () => fetch(
-            MUT_SINGLE_ORDER,
-            {
-                method: 'post',
-                body: JSON.stringify({ url, orderId })
-            }
-        )
+    const queryClient = useQueryClient()
+
+
+    var { isPending, isError, data: isServerError, mutate } = useMutation({
+        mutationFn: async (data) => {
+            const res = await fetch(MUT_SINGLE_ORDER, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application.json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            var result = await res.json();
+            if (result.status == 'true') { return false }
+            return true
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['singleOrderFetch'] })
+        },
     });
-    console.log(isPending, data);
-    
-    // var result = useApiResult('general', isPending, isError, data);
-    // console.log(result);
-    
-    return {isPending, data}
+
+    return { isPending, isError, isServerError, mutate }
 }
 
 export default useOrders;

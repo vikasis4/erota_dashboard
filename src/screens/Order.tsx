@@ -3,26 +3,24 @@ import React from 'react'
 import { useGetOrder, useUpdateOrder } from '../hooks/useOrders';
 import * as Styles from '../ui/styles'
 import Label from '../ui/components/Label';
+import UpdateOrder from '../components/UpdateOrder';
 
 const Order = (props: any) => {
 
   const { data } = useGetOrder(props.route.params.orderId);
+  var { isPending, isError, isServerError, mutate } = useUpdateOrder();
 
-  const fxn = () => { }
-  var res = useUpdateOrder('order_21323', 'dkshbxsk');
-  console.log(res);
-  
 
   return (
     !Array.isArray(data) &&
     <View style={styles.main}>
-      <Label label='Email' text={data.user.email} arr={[]} />
       <Label label='Name' text={data.user.name} arr={[]} />
+      <Label label='Email' text={data.user.email} arr={[]} />
       <Label label='Price' text={data.order.price} arr={[]} />
+      <Label label='Products' arr={data.order.products} text='' />
       <Label label='OrderId' text={data.order.orderId} arr={[]} />
       <Label label='PaymentId' text={data.order.paymentId} arr={[]} />
-      <Label label='Products' arr={data.order.products} text='' />
-      <Text onPress={fxn}>Press Meeee</Text>
+      <UpdateOrder orderId={data.order.orderId} url={data.order.trackingLink} shipmentCreated={data.order.shipmentCreated} updateFxn={mutate} auth={{ isPending, isError, isServerError }} />
     </View>
   )
 }

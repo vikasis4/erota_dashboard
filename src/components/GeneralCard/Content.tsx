@@ -18,8 +18,6 @@ const Content = ({
 }: CardType) => {
 
 
-    var tsx = 'pop';
-
     return (
         <View style={styles.main}>
             <View style={styles.top}>

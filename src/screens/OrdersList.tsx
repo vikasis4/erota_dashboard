@@ -29,7 +29,7 @@ const OrdersList = (props: NativeStackScreenProps<any, any>) => {
           <>
             <View style={{ height: 80, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
               <Pages length={API.Order.tl} action="user" />
-            </View> 
+            </View>
 
             <View style={{ flexGrow: 1, flexDirection: 'row' }}>
 
@@ -50,7 +50,6 @@ const OrdersList = (props: NativeStackScreenProps<any, any>) => {
               />
               </View>
           </>
-
       }
     </View>
   )
